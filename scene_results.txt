@@ -1,0 +1,68 @@
+Loading yolov8x...
+Model ready — 80 classes
+Camera ready
+Inference thread started
+Running — press Q to quit
+[DETECTED] person(95%)
+[DETECTED] person(94%)
+[DETECTED] person(92%)
+[SPEECH] Danger. Person ahead, less than half a meter. Move left to avoid immediately.
+[DETECTED] person(91%)
+[DETECTED] person(94%), teddy bear(59%)
+[DETECTED] person(93%), teddy bear(79%)
+[DETECTED] person(94%)
+[DETECTED] person(91%)
+[DETECTED] person(95%)
+[SCENE] busy_pedestrian_area — Busy area ahead. Multiple people detected. Proceed carefully.
+[DETECTED] person(95%)
+[DETECTED] person(94%)
+[DETECTED] person(94%)
+[DETECTED] person(94%)
+[DETECTED] person(94%)
+Shutting down...
+[SPEECH] Danger. Person ahead, less than half a meter. Move left to avoid immediately.
+Done.
+
+=== Safety Critical (Priority 0) ===
+[SCENE] road_crossing — Caution. You are near a road crossing. Vehicles are present.
+  PASS  traffic light + car = road crossing -> ROAD CROSSING | Caution. You are near a road crossing. Vehicles are present.
+[SCENE] heavy_traffic — Warning. Heavy traffic detected ahead. Stay on the pavement.
+  PASS  car + truck = heavy traffic         -> HEAVY TRAFFIC | Warning. Heavy traffic detected ahead. Stay on the pavement.
+[SCENE] staircase — Caution. A staircase is nearby. Move carefully.
+  PASS  stairs = staircase                  -> STAIRCASE NEARBY | Caution. A staircase is nearby. Move carefully.
+
+=== Important Environment (Priority 1) ===
+[SCENE] busy_pedestrian_area — Busy area ahead. Multiple people detected. Proceed carefully.
+  PASS  3 persons = busy area               -> BUSY AREA | Busy area ahead. Multiple people detected. Proceed carefully.
+  PASS  2 persons = NOT busy (below min_count) -> None | None
+[SCENE] road_scene — You appear to be near a roadway. Stay alert.
+  PASS  car alone = roadway                 -> ROADWAY | You appear to be near a roadway. Stay alert.
+[SCENE] corridor — You appear to be in a corridor or hallway.
+  PASS  person + door = corridor            -> CORRIDOR | You appear to be in a corridor or hallway.
+[SCENE] corridor — You appear to be in a corridor or hallway.
+  PASS  person + bench = corridor           -> CORRIDOR | You appear to be in a corridor or hallway.
+
+=== Contextual Indoor (Priority 2) ===
+[SCENE] dining_area — Indoor dining area detected.
+  PASS  dining table + chair = dining area  -> DINING AREA | Indoor dining area detected.
+[SCENE] dining_area — Indoor dining area detected.
+  PASS  dining table + cup = dining area    -> DINING AREA | Indoor dining area detected.
+[SCENE] office_workspace — Office or workspace area detected.
+  PASS  laptop + keyboard = workspace       -> WORKSPACE | Office or workspace area detected.
+[SCENE] living_room — Living room or seating area detected.
+  PASS  couch + tv = living room            -> LIVING ROOM | Living room or seating area detected.
+[SCENE] seating_area — Indoor seating area detected.
+  PASS  chair + person = seating area       -> SEATING AREA | Indoor seating area detected.
+[SCENE] bedroom — Bedroom area detected.
+  PASS  bed = bedroom                       -> BEDROOM | Bedroom area detected.
+
+=== No match ===
+  PASS  bottle alone = no scene             -> None | None
+  PASS  empty = no scene                    -> None | None
+
+=== Cooldown (same scene should not repeat) ===
+[SCENE] heavy_traffic — Warning. Heavy traffic detected ahead. Stay on the pavement.
+  PASS  Second call returns display but no speech (cooldown)
+
+=======================================================
+Results: 17 passed, 0 failed

@@ -1,0 +1,57 @@
+Loading yolov8x...
+Model ready — 80 classes
+Camera ready
+Inference thread started
+Running — press Q to quit
+[DETECTED] person(87%), bottle(80%), couch(53%), chair(47%)
+[DETECTED] person(89%), bottle(83%)
+[DETECTED] person(83%), bottle(82%)
+[SPEECH] Warning. Person ahead, approximately 1 and a half meters. Move left to avoid.
+[DETECTED] person(86%), bottle(81%), couch(55%)
+[DETECTED] person(87%), bottle(80%), couch(57%), chair(40%)
+[DETECTED] person(90%), bottle(82%), chair(53%)
+[DETECTED] person(89%), bottle(81%), couch(52%)
+[DETECTED] person(87%), bottle(81%), couch(58%)
+Exception in thread Thread-2 (inference_worker):
+Traceback (most recent call last):
+  File "C:\Users\kaviy\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "C:\Users\kaviy\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "d:\visionguide\distance_test.py", line 735, in inference_worker
+    result = scene_engine.infer(stable, obj_counts)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\visionguide\distance_test.py", line 357, in infer
+    if now - self._last_spoken.get(scene_name, 0) > SCENE_COOLDOWN:
+                                                    ^^^^^^^^^^^^^^
+NameError: name 'SCENE_COOLDOWN' is not defined. Did you mean: 'STAIR_COOLDOWN'?
+[SPEECH] Danger. Couch ahead, less than half a meter. Move left to avoid immediately. Warning. Person ahead, approximately 1 and a half meters. Move left to avoid.
+Shutting down...
+Done.
+
+=== No stairs ===
+  PASS  Blank frame = no stairs                       found=False type=None dir=None
+  PASS  Random noise = no stairs                      found=False type=None dir=None
+  PASS  Single diagonal line = no stairs              found=False type=None dir=None
+
+=== Ascending stairs (center) ===
+  FAIL  6 evenly-spaced converging lines = ascending stairs found=False type=None dir=None
+
+=== Descending stairs (center) ===
+  FAIL  6 evenly-spaced diverging lines = descending stairs found=False type=None dir=None
+
+=== Direction detection ===
+  FAIL  Stair cluster on left side = Left             found=False type=None dir=None
+  FAIL  Stair cluster on right side = Right           found=False type=None dir=None
+
+=== Cooldown logic ===
+  PASS  Fresh detector: should_speak=True
+  PASS  After mark_spoken: should_speak=False
+
+=== Message format ===
+  PASS  Warning. Stairs ahead, going upward. Please move carefully.
+  PASS  Warning. Stairs on your left, going downward. Please move carefully.
+  PASS  Warning. Stairs on your right, ahead. Please move carefully.
+
+============================================================
+Results: 8 passed, 4 failed
